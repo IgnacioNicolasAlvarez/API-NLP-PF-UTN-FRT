@@ -7,13 +7,11 @@ import pandas as  pd
 from pydantic import BaseModel
 from enum import Enum
 
-
 class Clasificacion_Polaridad(Enum):
     POSITIVO = 0
     NEGATIVO = 1
     NEUTRO = 2
     
-
 class Mensaje(BaseModel):
     texto: str
 
@@ -22,7 +20,7 @@ class Mensaje(BaseModel):
 app = FastAPI()
 
 
-@app.get("/predecir")
+@app.post("/predecir")
 def read_root(mensaje: Mensaje):
     archivo_modelo = 'modelo_transformador_proyecto.sav'
     transformer, modelo = pickle.load(open(archivo_modelo, 'rb'))
