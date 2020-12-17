@@ -38,10 +38,10 @@ def read_root(mensaje: Mensaje):
     archivo_modelo = "modelo_transformador_proyecto.sav"
     transformer, modelo = pickle.load(open(archivo_modelo, "rb"))
 
-    x = pd.DataFrame([texto])
-    x = transformer.transform(x.iloc[0])
+    df_texto_in = pd.DataFrame([texto])
+    X = transformer.transform(df_texto_in.iloc[0])
 
     return {
-        "Polaridad": f"{Clasificacion_Polaridad(modelo.predict(x)[0]).name}",
+        "Polaridad": f"{Clasificacion_Polaridad(modelo.predict(X)[0]).name}",
         "Mensaje L": texto,
     }
