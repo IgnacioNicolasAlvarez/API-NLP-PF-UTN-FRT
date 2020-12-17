@@ -8,8 +8,8 @@ from pydantic import BaseModel
 from enum import Enum
 
 class Clasificacion_Polaridad(Enum):
-    POSITIVO = 0
-    NEGATIVO = 1
+    NEGATIVO = 0
+    POSITIVO = 1
     NEUTRO = 2
     
 class Mensaje(BaseModel):
